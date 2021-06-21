@@ -90,6 +90,7 @@ def moveZeroes(nums: List[int]) -> None:
 
 # Time complexity is NlogN, space is O(N)
 def numRescueBoats(people: List[int], limit:int) -> int:
+
     #people array contains people's weight, limit is max boat weight
     #boat carries max 2
 
@@ -116,6 +117,8 @@ def numRescueBoats(people: List[int], limit:int) -> int:
 
     return nrBoats
 
+
+
 if __name__ == '__main__':
     bigO()
     #BSearchDemo()
@@ -125,5 +128,5 @@ if __name__ == '__main__':
     #print(moveZeroes([0,0,1]))
     #print(moveZeroes([1,0,0,1]))
 
-   #print(numRescueBoats([3,2,2,1],3))
+    #print(numRescueBoats([3,2,2,1],3))
 
