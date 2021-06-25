@@ -144,14 +144,54 @@ def countPrimes(n : int) -> int:
 
     return sum(arr)
 
-def single(nums : List[int]) -> int:
-    
+#All elements contain a single duplicate except for one.
+#We find that missing duplicate
+def singleNumber(nums : List[int]) -> int:
+    #set() contains all unique elements of the list
+    #We know there is
+    return 2*sum(set(nums)) - sum(nums)
 
+#Checks if the robot ends up at (0,0) at the end, returning a boolean
+def judgeCircle(self, moves: str) -> bool:
+    Coords = [0,0]
 
+    for move in moves:
+        if move == 'U':
+            Coords[1] +=1
+        elif move == 'D':
+            Coords[1] -=1
+        elif move == 'L':
+            Coords[0] -=1
+        elif move == 'R':
+            Coords[0] +=1
 
+    #Shorthand return Coords[0] == 0 and Coords[0] == 0
+    if Coords[0] == 0 and Coords[1] == 0:
+        return True
+    else:
+        return False
 
+def addBinary(self, a: str, b: str) -> str:
 
+    carry = 0
+    result = ""
+    i, j = len(a)-1,len(b)-1
 
+    #11
+    #11
+    while i >= 0 or j >= 0 or carry:
+        total = carry
+
+        if i >=0:
+            total+=int(a[i])
+            i-=1
+        if j >=0:
+            total+=int(b[j])
+            j-=1
+        result += ""+str(total%2)
+        carry = total //2
+
+    return result[::-1]
 
 
 if __name__ == '__main__':
@@ -166,5 +206,7 @@ if __name__ == '__main__':
     #print(numRescueBoats([3,2,2,1],3))
 
     #print(missingNumber([1,3,4,5]))
-    print(countPrimes(5))
+    #print(countPrimes(5))
+    #print(addBinary(None,"1010","1011"))
+
 
