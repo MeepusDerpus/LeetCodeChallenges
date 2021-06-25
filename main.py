@@ -1,3 +1,4 @@
+import math
 from typing import List
 
 def bigO():
@@ -117,6 +118,40 @@ def numRescueBoats(people: List[int], limit:int) -> int:
 
     return nrBoats
 
+def missingNumber(nums: List[int]) -> int:
+    Largest = max(nums)
+    Smallest = min(nums)-1#We do this to remove the double counting
+    GaussSum = (Largest*(Largest+1)/2) - (Smallest*(Smallest+1)/2)
+
+    ActualSum = sum(nums)
+    Missing = int(GaussSum-ActualSum)
+    return Missing
+
+#returns number of primes under N
+def countPrimes(n : int) -> int:
+    if n < 2:
+        return 0
+    arr = [True]*n
+    arr[0] = arr[1] = False
+
+    #Sieve of Erastothenes
+    for i in range(2,int(math.ceil(math.sqrt(n)))):
+        print(i*i,math.ceil(math.sqrt(n)))
+        if(arr[i]):
+            for multiples in range (i*i,n,1):
+
+                arr[multiples] = False
+
+    return sum(arr)
+
+def single(nums : List[int]) -> int:
+    
+
+
+
+
+
+
 
 
 if __name__ == '__main__':
@@ -129,4 +164,7 @@ if __name__ == '__main__':
     #print(moveZeroes([1,0,0,1]))
 
     #print(numRescueBoats([3,2,2,1],3))
+
+    #print(missingNumber([1,3,4,5]))
+    print(countPrimes(5))
 
