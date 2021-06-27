@@ -61,13 +61,36 @@ class HashTables():
 
                 #OR
                 #hashMap[hashVal] =[]
-                #hashMap[hashVal] = tempList 
+                #hashMap[hashVal] = tempList
 
         for values in hashMap.values():         #Returns hash values as list
             answers.append(values)
         return answers
 
+    @staticmethod
+    def fourSumV2(self,A : List[int],B : List[int],C : List[int],D : List[int]) -> int:
+        #count how many tuples ijkl such that the sum of ABCD[ijkl] is 0
+        Map = {}
+        Answer = 0
+        lA,lB,lC,lD = len(A),len(B),len(C),len(D)
 
+        for i in range(lA):
+            x = A[i]
+            for j in range(lB):
+                y = B[j]
+                if (x+y not in Map):
+                    Map[x+y] = 0
+                Map[x+y] += 1
+
+        for i in range(lC):
+            x = C[i]
+            for j in range(lD):
+                y = D[j]
+                target = -(x+y)
+                if(target in Map):
+                    Answer += m[target]
+
+        return Answer
 
     def __init__(self):
         #print(HashTables.twoSum(self,[1,2,3,4],3))
