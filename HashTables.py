@@ -93,6 +93,7 @@ class HashTables():
         return Answer
 
     def __init__(self):
+        pass
         #print(HashTables.twoSum(self,[1,2,3,4],3))
         #print(HashTables.majorityElement(self,[1,2,4,4,3,4,4,4,6]))
         #print(HashTables.groupAnagrams(self,["bat","tan","eat","tea","ate","nat"]))

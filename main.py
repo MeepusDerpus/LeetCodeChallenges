@@ -1,6 +1,7 @@
 import math
 from MathQuestions import MathQuestions
 from HashTables import HashTables
+from StacksQueues import StacksQueues
 from typing import List
 
 def bigO():
@@ -47,15 +48,15 @@ def BSearchDemo():
     print("")
 
 def BSearch(BST : List[int],target: int) -> None:
-    #Algorithm only works on sorted collections, such as BST, sorted Array etc
-    #Init 2 pointers, Low and High Indexed at 0 and len(array),find midpoint of pointers.
-    #Check if midpoint is < or > target, set Low to midpoint if greater, High to midpoint if lesser
-    #Repeat till 1 element left, check equality
+    """Algorithm only works on sorted collections, such as BST, sorted Array etc
+    Init 2 pointers, Low and High Indexed at 0 and len(array),find midpoint of pointers.
+    Check if midpoint is < or > target, set Low to midpoint if greater, High to midpoint if lesser
+    Repeat till 1 element left, check equality
 
     #Array Algorithm
     Low = 0
     High = len(BST)-1
-    Middle = (Low+High)//2
+    Middle = (Low+High)//2"""
 
     while(True):
       #print("Low",Low,"Middle",Middle,"High",High)
@@ -138,6 +139,10 @@ if __name__ == '__main__':
     #print(addBinary(None,"1010","1011"))
 
     #m = MathQuestions()
-    h = HashTables()
+    #h = HashTables()
+    s = StacksQueues()
+    s.isValid("{([])}")
+    s.isValid("{([]))}")
+
 
 
