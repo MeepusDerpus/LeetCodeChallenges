@@ -63,4 +63,40 @@ class StacksQueues:
                 level.clear()
         return result
 
+    def TestRecursive(self):
+        tree = TreeNode(1)
+        tree.left = TreeNode(2)
+        tree.right = TreeNode(3)
+        tree.left.left = TreeNode(4)
+        tree.left.right = TreeNode(5)
+        print("Pre Order Traversal is", self.RecursiveTraversal(tree, "PRE"))
+        print("Post Order Traversal is", self.RecursiveTraversal(tree, "POST"))
+        print("In Order Traversal is",self.RecursiveTraversal(tree,"IN"))
 
+    def RecursiveTraversal(self, root: TreeNode, strategy: str) -> List[int]:
+        """Returns a list with the order traversal of elements in the tree
+           Uses a strategy type pattern with parameters strategy = {PRE,POST,IN}
+           For respective order traversals
+        """
+
+        result = []
+        if (root):
+            if strategy == 'POST':
+                if (root.left is not None):
+                    result = result + self.RecursiveTraversal(root.left,strategy)
+                if (root.right is not None):
+                    result = result + self.RecursiveTraversal(root.right,strategy)
+                result.append(root.val)
+            elif strategy == 'PRE':
+                result.append(root.val)
+                if (root.left is not None):
+                    result = result + self.RecursiveTraversal(root.left,strategy)
+                if (root.right is not None):
+                    result = result + self.RecursiveTraversal(root.right,strategy)
+            elif strategy == 'IN':
+                if (root.left is not None):
+                    result = result + self.RecursiveTraversal(root.left,strategy)
+                result.append(root.val)
+                if (root.right is not None):
+                    result = result + self.RecursiveTraversal(root.right,strategy)
+        return result
