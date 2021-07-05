@@ -1,5 +1,8 @@
 # LeetCodeChallenges
- My Attempts at various LeetCode Challenges
+ My Attempts at various LeetCode Challenges. Taken from the LeetCode in Python:50 algorithms coding interview questions. 
+ https://www.udemy.com/course/leetcode-in-python-50-algorithms-coding-interview-questions/
+ 
+ Note that All code is my own, I have merely followed the tutorial videos, learning some nifty syntax along the way and doing things my own way at times.
  
  bigO() Is a simple crash course in algorithm analysis & Complexity, Will update later to make user friendly and print out info
  
