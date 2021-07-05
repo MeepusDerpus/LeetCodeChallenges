@@ -1,3 +1,13 @@
+from collections import deque
+from typing import List
+
+class TreeNode:
+     """A Binary Tree with Left/Right Nodes"""
+     def __init__(self, val=0, left=None, right=None):
+         self.val = val
+         self.left = left
+         self.right = right
+
 class StacksQueues:
     def __init__(self):
         pass
@@ -25,8 +35,32 @@ class StacksQueues:
             st.append(char)
         return (len(st)==0)
 
+    def levelOrder(self, root: TreeNode) -> List[List[int]]:
+        """Runs a BFS Traversal, Returning a 2D Array representing notes at each level of the tree.
+           One dimension representing each level, and it's array representing nodes at that level.
+           q is a queue of child nodes, starting from the root, down to the end.
+        """
 
-#
+        result = []
+        if(root is None):
+            return result
 
+        q = deque([root])
+        while(q):
+            n = len(q)
+            level = []
+            for i in range(0,n):
+                f = q.popleft()
+                level.append(f.val)
+
+                if (f.left is not None):
+                    q.append(f.left)
+                if (f.right is not None):
+                    q.append(f.right)
+
+            if(len(level) > 0):
+                result.append(level[:])
+                level.clear()
+        return result
 
 
