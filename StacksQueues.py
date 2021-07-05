@@ -100,3 +100,68 @@ class StacksQueues:
                 if (root.right is not None):
                     result = result + self.RecursiveTraversal(root.right,strategy)
         return result
+
+    def StackBasedTraversal(self,root: TreeNode, strategy: str) -> List[int]:
+        """S1 is like call stack s2 is the container nodes in s"""
+        if(not root):
+            return
+
+        ans = []
+        s1,s2 = [],[]
+        s1.append(root)
+
+        while(s1):
+            x = s1[-1]
+            s1.pop()
+            s2.append(x)
+
+            if(x.left):
+                s1.append(x.left)
+
+            if(x.right):
+                s1.append(x.right)
+
+        while(s2):
+            y = s2[-1]
+            s2.pop()
+            ans.append(y.val)
+
+        return ans
+
+    def TestZig(self):
+        tree = TreeNode(3)
+        tree.left = TreeNode(9)
+        tree.right = TreeNode(20)
+        tree.right.left = TreeNode(15)
+        tree.right.right = TreeNode(7)
+        print(self.zigzagLevelOrder(tree))
+
+
+    def zigzagLevelOrder(self, root: TreeNode) -> List[List[int]]:
+        result = []
+        if (root is None):
+            return result
+
+        q = deque([root])
+        while (q):
+            n = len(q)
+            level = []
+            for i in range(0, n):
+                f = q.popleft()
+                level.append(f.val)
+
+                if (f.left is not None):
+                    q.append(f.left)
+                if (f.right is not None):
+                    q.append(f.right)
+
+            if (len(level) > 0):
+                if (len(result)%2 == 0):
+                    result.append(level[:])
+                else:
+                    result.append(level[::-1])
+                level.clear()
+        return result
+
+
+

@@ -143,7 +143,8 @@ if __name__ == '__main__':
     s = StacksQueues()
     s.isValid("{([])}")
     s.isValid("{([]))}")
-    s.TestRecursive()
+    #s.TestRecursive()
+    s.TestZig()
 
 
 
